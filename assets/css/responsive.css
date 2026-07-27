@@ -1,0 +1,23 @@
+@media (max-width: 980px) {
+  .hero,
+  .grid-main,
+  .grid-kpi,
+  .filters-grid,
+  .import-grid,
+  .import-preview,
+  .drawer-grid,
+  .drawer-grid-tight,
+  .risk-cards,
+  .fuel-notes {
+    grid-template-columns: 1fr;
+  }
+
+  .route-row {
+    grid-template-columns: 1fr;
+  }
+
+  .page {
+    width: min(100% - 20px, 1240px);
+    padding-top: 20px;
+  }
+}

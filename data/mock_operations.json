@@ -1,0 +1,67 @@
+{
+  "vehicles": [
+    { "vehicle_id": "V-101", "plate_number": "B-NL-204", "type": "Trailer", "status": "ACTIVE", "capacity_tons": 24, "assigned_driver_id": "D-01" },
+    { "vehicle_id": "V-102", "plate_number": "B-NL-118", "type": "Trailer", "status": "ACTIVE", "capacity_tons": 22, "assigned_driver_id": "D-02" },
+    { "vehicle_id": "V-103", "plate_number": "B-NL-310", "type": "Trailer", "status": "ACTIVE", "capacity_tons": 24, "assigned_driver_id": "D-03" },
+    { "vehicle_id": "V-104", "plate_number": "B-NL-126", "type": "Trailer", "status": "ACTIVE", "capacity_tons": 24, "assigned_driver_id": "D-04" },
+    { "vehicle_id": "V-105", "plate_number": "B-NL-119", "type": "Trailer", "status": "ACTIVE", "capacity_tons": 23, "assigned_driver_id": "D-05" },
+    { "vehicle_id": "V-106", "plate_number": "B-NL-222", "type": "Trailer", "status": "ACTIVE", "capacity_tons": 24, "assigned_driver_id": "D-06" },
+    { "vehicle_id": "V-107", "plate_number": "B-NL-232", "type": "Trailer", "status": "ACTIVE", "capacity_tons": 24, "assigned_driver_id": "D-07" },
+    { "vehicle_id": "V-108", "plate_number": "B-NL-267", "type": "Trailer", "status": "ACTIVE", "capacity_tons": 22, "assigned_driver_id": "D-08" },
+    { "vehicle_id": "V-109", "plate_number": "B-NL-275", "type": "Trailer", "status": "ACTIVE", "capacity_tons": 24, "assigned_driver_id": "D-09" },
+    { "vehicle_id": "V-110", "plate_number": "B-NL-281", "type": "Trailer", "status": "ACTIVE", "capacity_tons": 24, "assigned_driver_id": "D-10" },
+    { "vehicle_id": "V-111", "plate_number": "B-NL-302", "type": "Trailer", "status": "ACTIVE", "capacity_tons": 23, "assigned_driver_id": "D-11" },
+    { "vehicle_id": "V-112", "plate_number": "B-NL-325", "type": "Trailer", "status": "ACTIVE", "capacity_tons": 24, "assigned_driver_id": "D-12" },
+    { "vehicle_id": "V-113", "plate_number": "B-NL-331", "type": "Trailer", "status": "IDLE", "capacity_tons": 22, "assigned_driver_id": null },
+    { "vehicle_id": "V-114", "plate_number": "B-NL-344", "type": "Trailer", "status": "MAINTENANCE", "capacity_tons": 24, "assigned_driver_id": null },
+    { "vehicle_id": "V-115", "plate_number": "B-NL-355", "type": "Trailer", "status": "DELAYED", "capacity_tons": 24, "assigned_driver_id": "D-13" }
+  ],
+  "drivers": [
+    { "driver_id": "D-01", "full_name": "Markus Klein", "assigned_vehicle_id": "V-101", "active_status": true, "incident_count": 0 },
+    { "driver_id": "D-02", "full_name": "Anton Weiss", "assigned_vehicle_id": "V-102", "active_status": true, "incident_count": 1 },
+    { "driver_id": "D-03", "full_name": "Juri Falk", "assigned_vehicle_id": "V-103", "active_status": true, "incident_count": 2 },
+    { "driver_id": "D-04", "full_name": "Dario Sturm", "assigned_vehicle_id": "V-104", "active_status": true, "incident_count": 0 },
+    { "driver_id": "D-05", "full_name": "Nils Becker", "assigned_vehicle_id": "V-105", "active_status": true, "incident_count": 0 },
+    { "driver_id": "D-06", "full_name": "Sven Adler", "assigned_vehicle_id": "V-106", "active_status": true, "incident_count": 1 }
+  ],
+  "loads": [
+    { "load_id": "L-4902", "client_name": "Baltic Retail GmbH", "pickup_city": "Berlin", "delivery_city": "Hamburg", "contract_price": 14600, "status": "DELIVERED", "scheduled_delivery_at": "2026-04-02T17:00:00Z", "actual_delivery_at": "2026-04-02T16:40:00Z" },
+    { "load_id": "L-4903", "client_name": "Alpine Industrial", "pickup_city": "Munich", "delivery_city": "Prague", "contract_price": 13100, "status": "DELIVERED", "scheduled_delivery_at": "2026-04-02T18:00:00Z", "actual_delivery_at": "2026-04-02T18:15:00Z" },
+    { "load_id": "L-4904", "client_name": "Polaris Steel", "pickup_city": "Leipzig", "delivery_city": "Warsaw", "contract_price": 15250, "status": "IN_TRANSIT", "scheduled_delivery_at": "2026-04-03T19:00:00Z", "actual_delivery_at": null },
+    { "load_id": "L-4905", "client_name": "NorthGlass BV", "pickup_city": "Cologne", "delivery_city": "Rotterdam", "contract_price": 10800, "status": "DELIVERED", "scheduled_delivery_at": "2026-04-01T11:30:00Z", "actual_delivery_at": "2026-04-01T11:10:00Z" },
+    { "load_id": "L-4906", "client_name": "Milano Trade SRL", "pickup_city": "Frankfurt", "delivery_city": "Milan", "contract_price": 18900, "status": "DELIVERED", "scheduled_delivery_at": "2026-04-02T21:00:00Z", "actual_delivery_at": "2026-04-02T22:30:00Z" },
+    { "load_id": "L-4907", "client_name": "Vienna Foods", "pickup_city": "Dresden", "delivery_city": "Vienna", "contract_price": 9800, "status": "DELIVERED", "scheduled_delivery_at": "2026-04-01T17:00:00Z", "actual_delivery_at": "2026-04-01T17:45:00Z" },
+    { "load_id": "L-4908", "client_name": "Rhine Trade Group", "pickup_city": "Berlin", "delivery_city": "Hamburg", "contract_price": 14950, "status": "DELIVERED", "scheduled_delivery_at": "2026-04-03T10:30:00Z", "actual_delivery_at": "2026-04-03T10:05:00Z" },
+    { "load_id": "L-4909", "client_name": "Delta Cargo AG", "pickup_city": "Frankfurt", "delivery_city": "Milan", "contract_price": 19150, "status": "DELAYED", "scheduled_delivery_at": "2026-04-03T08:30:00Z", "actual_delivery_at": null }
+  ],
+  "trips": [
+    { "trip_id": "T-201", "load_id": "L-4902", "driver_id": "D-01", "vehicle_id": "V-101", "route_name": "Berlin -> Hamburg", "distance_km": 289, "departure_at": "2026-04-02T08:00:00Z", "arrival_at": "2026-04-02T16:40:00Z", "delay_minutes": 0 },
+    { "trip_id": "T-202", "load_id": "L-4903", "driver_id": "D-02", "vehicle_id": "V-102", "route_name": "Munich -> Prague", "distance_km": 382, "departure_at": "2026-04-02T09:00:00Z", "arrival_at": "2026-04-02T18:15:00Z", "delay_minutes": 15 },
+    { "trip_id": "T-203", "load_id": "L-4904", "driver_id": "D-02", "vehicle_id": "V-102", "route_name": "Leipzig -> Warsaw", "distance_km": 573, "departure_at": "2026-04-03T07:10:00Z", "arrival_at": null, "delay_minutes": 120 },
+    { "trip_id": "T-204", "load_id": "L-4905", "driver_id": "D-05", "vehicle_id": "V-105", "route_name": "Cologne -> Rotterdam", "distance_km": 266, "departure_at": "2026-04-01T05:50:00Z", "arrival_at": "2026-04-01T11:10:00Z", "delay_minutes": 0 },
+    { "trip_id": "T-205", "load_id": "L-4906", "driver_id": "D-03", "vehicle_id": "V-103", "route_name": "Frankfurt -> Milan", "distance_km": 655, "departure_at": "2026-04-02T10:10:00Z", "arrival_at": "2026-04-02T22:30:00Z", "delay_minutes": 90 },
+    { "trip_id": "T-206", "load_id": "L-4907", "driver_id": "D-06", "vehicle_id": "V-106", "route_name": "Dresden -> Vienna", "distance_km": 470, "departure_at": "2026-04-01T07:45:00Z", "arrival_at": "2026-04-01T17:45:00Z", "delay_minutes": 45 },
+    { "trip_id": "T-207", "load_id": "L-4908", "driver_id": "D-04", "vehicle_id": "V-104", "route_name": "Berlin -> Hamburg", "distance_km": 289, "departure_at": "2026-04-03T02:20:00Z", "arrival_at": "2026-04-03T10:05:00Z", "delay_minutes": 0 },
+    { "trip_id": "T-208", "load_id": "L-4909", "driver_id": "D-03", "vehicle_id": "V-103", "route_name": "Frankfurt -> Milan", "distance_km": 655, "departure_at": "2026-04-02T19:30:00Z", "arrival_at": null, "delay_minutes": 540 }
+  ],
+  "fuel_events": [
+    { "fuel_event_id": "F-801", "trip_id": "T-201", "vehicle_id": "V-101", "date": "2026-04-02", "liters": 96, "total_cost": 176 },
+    { "fuel_event_id": "F-802", "trip_id": "T-202", "vehicle_id": "V-102", "date": "2026-04-02", "liters": 118, "total_cost": 214 },
+    { "fuel_event_id": "F-803", "trip_id": "T-203", "vehicle_id": "V-102", "date": "2026-04-03", "liters": 170, "total_cost": 308 },
+    { "fuel_event_id": "F-804", "trip_id": "T-204", "vehicle_id": "V-105", "date": "2026-04-01", "liters": 88, "total_cost": 159 },
+    { "fuel_event_id": "F-805", "trip_id": "T-205", "vehicle_id": "V-103", "date": "2026-04-02", "liters": 212, "total_cost": 396 },
+    { "fuel_event_id": "F-806", "trip_id": "T-206", "vehicle_id": "V-106", "date": "2026-04-01", "liters": 161, "total_cost": 287 },
+    { "fuel_event_id": "F-807", "trip_id": "T-207", "vehicle_id": "V-104", "date": "2026-04-03", "liters": 97, "total_cost": 178 },
+    { "fuel_event_id": "F-808", "trip_id": "T-208", "vehicle_id": "V-103", "date": "2026-04-03", "liters": 238, "total_cost": 445 }
+  ],
+  "cost_summary": [
+    { "trip_id": "T-201", "fuel_cost": 176, "toll_cost": 88, "driver_cost": 210, "maintenance_cost": 45, "penalty_cost": 0 },
+    { "trip_id": "T-202", "fuel_cost": 214, "toll_cost": 94, "driver_cost": 240, "maintenance_cost": 52, "penalty_cost": 0 },
+    { "trip_id": "T-203", "fuel_cost": 308, "toll_cost": 126, "driver_cost": 295, "maintenance_cost": 68, "penalty_cost": 90 },
+    { "trip_id": "T-204", "fuel_cost": 159, "toll_cost": 61, "driver_cost": 180, "maintenance_cost": 35, "penalty_cost": 0 },
+    { "trip_id": "T-205", "fuel_cost": 396, "toll_cost": 168, "driver_cost": 340, "maintenance_cost": 84, "penalty_cost": 140 },
+    { "trip_id": "T-206", "fuel_cost": 287, "toll_cost": 122, "driver_cost": 290, "maintenance_cost": 58, "penalty_cost": 40 },
+    { "trip_id": "T-207", "fuel_cost": 178, "toll_cost": 87, "driver_cost": 205, "maintenance_cost": 41, "penalty_cost": 0 },
+    { "trip_id": "T-208", "fuel_cost": 445, "toll_cost": 170, "driver_cost": 360, "maintenance_cost": 92, "penalty_cost": 180 }
+  ]
+}

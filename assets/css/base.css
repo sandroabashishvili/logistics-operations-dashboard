@@ -1,0 +1,102 @@
+:root {
+  --bg: #09131c;
+  --panel: #142232;
+  --panel-strong: #0d1a28;
+  --text: #eef4f8;
+  --muted: #8ea5b6;
+  --line: #23384c;
+  --cyan: #4bd6ff;
+  --lime: #73f28d;
+  --amber: #ffbf47;
+  --red: #ff6c63;
+  --blue: #5e9bff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(75, 214, 255, 0.12), transparent 28%),
+    linear-gradient(180deg, #08111a 0%, #0b1722 100%);
+  color: var(--text);
+}
+
+a,
+button,
+select,
+.panel,
+.kpi-card,
+.risk-card,
+.route-row,
+.legend-item,
+.hero-tags span,
+.import-preview-card,
+.import-tags span,
+.risk-meta span,
+.load-row {
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background-color 180ms ease,
+    box-shadow 180ms ease,
+    color 180ms ease;
+}
+
+h1,
+h2 {
+  margin: 0;
+}
+
+h1 {
+  font-size: clamp(30px, 5vw, 48px);
+  line-height: 1.05;
+}
+
+.eyebrow,
+.panel-label {
+  margin: 0 0 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 12px;
+  color: var(--cyan);
+}
+
+.intro,
+.panel-intro {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.intro {
+  max-width: 760px;
+  margin: 16px 0 0;
+  font-size: 17px;
+}
+
+.hero-tags span,
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  color: #d8e5ee;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+}
+
+.badge-muted {
+  color: #b8c6d0;
+}
+
+.badge-warn {
+  color: #ffe2a0;
+}
+
+.badge-danger {
+  color: #ffc0bc;
+}

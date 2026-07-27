@@ -1,0 +1,66 @@
+.table-shell {
+  overflow-x: auto;
+  margin-top: 16px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 12px 10px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  white-space: nowrap;
+}
+
+th {
+  color: #98b0c0;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+}
+
+td strong.ok {
+  color: var(--lime);
+}
+
+td strong.risk {
+  color: var(--red);
+}
+
+td strong.watch {
+  color: var(--amber);
+}
+
+.status-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+}
+
+.status-delivered {
+  color: var(--lime);
+}
+
+.status-in_transit {
+  color: var(--cyan);
+}
+
+.status-delayed {
+  color: var(--red);
+}
+
+.load-row {
+  cursor: pointer;
+}
+
+.load-row:hover {
+  background: rgba(94, 155, 255, 0.08);
+  transform: translateY(-1px);
+}

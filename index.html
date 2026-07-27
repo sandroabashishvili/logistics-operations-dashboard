@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Northline Ops | Logistics Operations Dashboard</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2714%27 fill=%27%230d1a28%27/%3E%3Cpath d=%27M16 42h32M20 34h24M25 26h14M30 18h4%27 stroke=%27%234bd6ff%27 stroke-width=%275%27 stroke-linecap=%27round%27/%3E%3C/svg%3E" />
+    <meta
+      name="description"
+      content="Portfolio dashboard prototype for a small logistics company with fleet utilization, route profitability, driver performance, and risk load tracking."
+    />
+    <link rel="stylesheet" href="./assets/css/base.css" />
+    <link rel="stylesheet" href="./assets/css/layout.css" />
+    <link rel="stylesheet" href="./assets/css/filters.css" />
+    <link rel="stylesheet" href="./assets/css/cards.css" />
+    <link rel="stylesheet" href="./assets/css/charts.css" />
+    <link rel="stylesheet" href="./assets/css/tables.css" />
+    <link rel="stylesheet" href="./assets/css/responsive.css" />
+    <link rel="stylesheet" href="./assets/css/reporting.css" />
+  </head>
+  <body>
+    <main class="page">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Portfolio Project</p>
+          <h1>Northline Logistics Operations Dashboard</h1>
+          <p class="intro">
+            A control center for small transport companies to see fleet utilization, route
+            profitability, fuel pressure, driver output, and delayed loads in one place.
+          </p>
+          <div class="hero-tags">
+            <span>Fleet Analytics</span>
+            <span>Route Profitability</span>
+            <span>Operations Visibility</span>
+          </div>
+        </div>
+        <aside class="hero-panel">
+          <p class="panel-label">Snapshot</p>
+          <div class="hero-metrics">
+            <div>
+              <span>Active Trailers</span>
+              <strong data-hero-active>12 / 15</strong>
+            </div>
+            <div>
+              <span>Open Loads</span>
+              <strong data-hero-loads>18</strong>
+            </div>
+            <div>
+              <span>Avg Margin</span>
+              <strong data-hero-margin>14.8%</strong>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="report-toolbar" aria-label="Report actions">
+        <div class="report-meta">
+          <div><span>Dataset</span><strong data-report-dataset>Bundled mock dataset</strong></div>
+          <div><span>Updated</span><strong data-report-updated>Preparing report...</strong></div>
+          <div><span>Scope</span><strong data-report-load-count>Visible loads</strong></div>
+        </div>
+        <div class="report-actions">
+          <button class="report-button" type="button" data-export-json>Export snapshot JSON</button>
+          <button class="report-button report-button-primary" type="button" data-print-report>Print / Save PDF</button>
+        </div>
+      </section>
+
+      <section class="grid grid-kpi" data-kpi-grid></section>
+
+      <section class="filters-panel import-panel">
+        <div class="filters-head">
+          <div>
+            <h2>CSV Import Mock Flow</h2>
+            <p class="panel-intro">
+              Simulate a real client handoff: upload a simple operations CSV and swap the
+              dashboard to imported load, trip, fuel, and cost records.
+            </p>
+          </div>
+          <div class="import-actions">
+            <a class="reset-button import-link" href="./data/sample_import.csv" download>
+              Download sample CSV
+            </a>
+            <button class="reset-button" type="button" data-restore-mock>
+              Restore mock dataset
+            </button>
+          </div>
+        </div>
+        <div class="import-grid">
+          <label class="filter-field import-field">
+            <span>Upload CSV</span>
+            <input class="import-file-input" type="file" accept=".csv,text/csv" data-import-file />
+            <span class="import-file-trigger">Choose CSV file</span>
+            <small class="import-file-name" data-import-file-name>No file selected</small>
+          </label>
+          <div class="import-expectations">
+            <span>Expected columns</span>
+            <div class="import-tags">
+              <span>load_id</span>
+              <span>client_name</span>
+              <span>pickup_city</span>
+              <span>delivery_city</span>
+              <span>driver_name</span>
+              <span>vehicle_id</span>
+              <span>contract_price</span>
+              <span>status</span>
+              <span>fuel_cost</span>
+              <span>driver_cost</span>
+            </div>
+          </div>
+        </div>
+        <div class="import-status-shell">
+          <p class="import-status" data-import-status>
+            Using bundled mock operations data. Upload a CSV to preview a client import story.
+          </p>
+          <div class="import-preview" data-import-preview></div>
+        </div>
+      </section>
+
+      <section class="filters-panel">
+        <div class="filters-head">
+          <h2>Filters</h2>
+          <button class="reset-button" type="button" data-reset-filters>Reset</button>
+        </div>
+        <div class="filters-grid">
+          <label class="filter-field">
+            <span>Load Status</span>
+            <select data-filter-status>
+              <option value="ALL">All statuses</option>
+            </select>
+          </label>
+          <label class="filter-field">
+            <span>Lane</span>
+            <select data-filter-lane>
+              <option value="ALL">All lanes</option>
+            </select>
+          </label>
+          <label class="filter-field">
+            <span>Driver</span>
+            <select data-filter-driver>
+              <option value="ALL">All drivers</option>
+            </select>
+          </label>
+          <label class="filter-field">
+            <span>Client</span>
+            <select data-filter-client>
+              <option value="ALL">All clients</option>
+            </select>
+          </label>
+          <label class="filter-field">
+            <span>Date</span>
+            <select data-filter-date>
+              <option value="ALL">All dates</option>
+            </select>
+          </label>
+          <label class="filter-field">
+            <span>Region</span>
+            <select data-filter-region>
+              <option value="ALL">All regions</option>
+            </select>
+          </label>
+        </div>
+      </section>
+
+      <section class="grid grid-main">
+        <article class="panel panel-wide">
+          <div class="panel-head">
+            <h2>Route Profitability</h2>
+            <span class="badge">Top 6 lanes</span>
+          </div>
+          <p class="panel-intro">
+            Revenue, fuel, and margin per route to expose strong and weak transport lanes.
+          </p>
+          <div class="route-bars" data-route-bars></div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-head">
+            <h2>Fleet Utilization</h2>
+            <span class="badge badge-muted">Live status</span>
+          </div>
+          <p class="panel-intro">
+            Visual breakdown of active, idle, maintenance, and delayed trailer capacity.
+          </p>
+          <div class="utilization-stack" data-utilization></div>
+          <div class="legend" data-utilization-legend></div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-head">
+            <h2>Fuel Cost Trend</h2>
+            <span class="badge badge-warn">7 days</span>
+          </div>
+          <p class="panel-intro">
+            Daily fuel burn and average cost pressure against completed deliveries.
+          </p>
+          <div class="spark" data-fuel-spark></div>
+          <div class="fuel-notes" data-fuel-notes></div>
+        </article>
+
+        <article class="panel panel-wide">
+          <div class="panel-head">
+            <h2>Driver Performance</h2>
+            <span class="badge">Weekly</span>
+          </div>
+          <p class="panel-intro">
+            Compare completed loads, on-time ratio, fuel discipline, and incident count by driver.
+          </p>
+          <div class="table-shell">
+            <table>
+              <thead>
+                <tr>
+                  <th>Driver</th>
+                  <th>Truck</th>
+                  <th>Loads</th>
+                  <th>On-Time</th>
+                  <th>Fuel / 100km</th>
+                  <th>Incidents</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody data-driver-table></tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="panel panel-wide">
+          <div class="panel-head">
+            <h2>Active Loads and Trips</h2>
+            <span class="badge">Dispatch view</span>
+          </div>
+          <p class="panel-intro">
+            Load-level visibility across client, route, assigned truck, assigned driver, revenue,
+            and delay pressure.
+          </p>
+          <div class="table-shell">
+            <table>
+              <thead>
+                <tr>
+                  <th>Load</th>
+                  <th>Client</th>
+                  <th>Lane</th>
+                  <th>Truck</th>
+                  <th>Driver</th>
+                  <th>Status</th>
+                  <th>Revenue</th>
+                  <th>Delay</th>
+                </tr>
+              </thead>
+              <tbody data-load-table></tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="panel panel-wide">
+          <div class="panel-head">
+            <h2>Trip Detail Drawer</h2>
+            <span class="badge badge-muted">Inspection</span>
+          </div>
+          <p class="panel-intro">
+            Click a load row to inspect lane, truck, driver, revenue, delay pressure, and cost
+            structure.
+          </p>
+          <div class="drawer-shell" data-load-drawer></div>
+        </article>
+
+        <article class="panel panel-wide">
+          <div class="panel-head">
+            <h2>Risk Loads</h2>
+            <span class="badge badge-danger">Needs action</span>
+          </div>
+          <p class="panel-intro">
+            Loads at risk due to border delays, maintenance, fuel deviation, or ETA slippage.
+          </p>
+          <div class="risk-cards" data-risk-cards></div>
+        </article>
+      </section>
+    </main>
+
+    <script type="module" src="./assets/js/main.js"></script>
+  </body>
+</html>
