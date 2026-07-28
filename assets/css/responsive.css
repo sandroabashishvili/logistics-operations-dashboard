@@ -21,3 +21,59 @@
     padding-top: 20px;
   }
 }
+
+
+@media (max-width: 820px) {
+  .appbar {
+    position: static;
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+  }
+
+  .appnav {
+    grid-column: 1 / -1;
+    justify-content: flex-start;
+    overflow-x: auto;
+  }
+
+  .system-status {
+    justify-self: end;
+  }
+
+  .app-footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 520px) {
+  .system-status {
+    display: none;
+  }
+
+  .appbar {
+    grid-template-columns: 1fr;
+  }
+
+  .appnav {
+    grid-column: 1;
+    flex-wrap: wrap;
+    overflow-x: visible;
+  }
+
+  .hero-copy,
+  .hero-panel,
+  .panel,
+  .filters-panel {
+    padding: 18px;
+  }
+
+  .hero-tags span {
+    max-width: 100%;
+    white-space: normal;
+  }
+
+  h1 {
+    font-size: clamp(28px, 9vw, 36px);
+  }
+}

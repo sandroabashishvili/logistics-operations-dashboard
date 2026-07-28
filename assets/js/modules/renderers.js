@@ -16,14 +16,17 @@ export function renderKpis(dashboardData) {
 export function renderRoutes(dashboardData) {
   const root = document.querySelector("[data-route-bars]");
   if (!root) return;
-  const maxMargin = Math.max(...dashboardData.routes.map((route) => route.margin), 1);
+  if (!dashboardData.routes.length) {
+    root.innerHTML = `<div class="empty-state">No route data matches the current filters.</div>`;
+    return;
+  }
   root.innerHTML = dashboardData.routes
     .map(
       (route) => `
         <div class="route-row">
           <div class="route-label">${route.lane}</div>
           <div class="route-track">
-            <div class="route-fill" style="width: ${(route.margin / maxMargin) * 100}%"></div>
+            <div class="route-fill" style="width: ${Math.max(4, Math.min(route.margin, 30) / 30 * 100)}%"></div>
           </div>
           <div class="route-margin">${route.margin.toFixed(1)}%</div>
         </div>
@@ -37,6 +40,11 @@ export function renderUtilization(dashboardData) {
   const legend = document.querySelector("[data-utilization-legend]");
   if (!stack || !legend) return;
   const total = dashboardData.utilization.reduce((sum, item) => sum + item.count, 0);
+  if (!total) {
+    stack.innerHTML = `<div class="empty-state compact">No fleet data available.</div>`;
+    legend.innerHTML = "";
+    return;
+  }
 
   stack.innerHTML = dashboardData.utilization
     .map(
@@ -65,6 +73,11 @@ export function renderFuelTrend(dashboardData) {
   const spark = document.querySelector("[data-fuel-spark]");
   const notes = document.querySelector("[data-fuel-notes]");
   if (!spark || !notes) return;
+  if (!dashboardData.fuelTrend.length) {
+    spark.innerHTML = `<div class="empty-state">No fuel events match the current filters.</div>`;
+    notes.innerHTML = "";
+    return;
+  }
   const max = Math.max(...dashboardData.fuelTrend.map((item) => item.value), 1);
 
   spark.innerHTML = dashboardData.fuelTrend
@@ -93,6 +106,10 @@ export function renderFuelTrend(dashboardData) {
 export function renderDrivers(dashboardData) {
   const root = document.querySelector("[data-driver-table]");
   if (!root) return;
+  if (!dashboardData.drivers.length) {
+    root.innerHTML = `<tr><td colspan="7"><div class="empty-state">No driver records match the current filters.</div></td></tr>`;
+    return;
+  }
   root.innerHTML = dashboardData.drivers
     .map((driver) => {
       const statusClass =
@@ -115,6 +132,10 @@ export function renderDrivers(dashboardData) {
 export function renderLoads(dashboardData, selectedLoadId = null) {
   const root = document.querySelector("[data-load-table]");
   if (!root) return;
+  if (!dashboardData.loads.length) {
+    root.innerHTML = `<tr><td colspan="8"><div class="empty-state">No loads match the current filters.</div></td></tr>`;
+    return;
+  }
   root.innerHTML = dashboardData.loads
     .map((load) => {
       const delayText =
@@ -166,6 +187,17 @@ function getActionRecommendation(load) {
     title: "Trip is within operating range",
     text: "No immediate intervention is required. Continue monitoring ETA and cost variance.",
   };
+}
+
+function formatDateTime(value) {
+  if (!value || value === "—") return "—";
+  const parsed = new Date(value);
+  if (Number.isNaN(parsed.getTime())) return value;
+  return new Intl.DateTimeFormat("en-GB", {
+    dateStyle: "medium",
+    timeStyle: "short",
+    timeZone: "UTC",
+  }).format(parsed);
 }
 
 export function renderLoadDrawer(load) {
@@ -230,8 +262,8 @@ export function renderLoadDrawer(load) {
       <div><span>Trip ID</span><strong>${load.tripId}</strong></div>
       <div><span>Distance</span><strong>${load.distanceKm} km</strong></div>
       <div><span>Delay</span><strong>${delayText}</strong></div>
-      <div><span>Departure</span><strong>${load.departureAt}</strong></div>
-      <div><span>Arrival</span><strong>${load.arrivalAt}</strong></div>
+      <div><span>Departure</span><strong>${formatDateTime(load.departureAt)}</strong></div>
+      <div><span>Arrival</span><strong>${formatDateTime(load.arrivalAt)}</strong></div>
     </div>
 
     <div class="drawer-costs">
@@ -256,6 +288,10 @@ export function renderLoadDrawer(load) {
 export function renderRisks(dashboardData) {
   const root = document.querySelector("[data-risk-cards]");
   if (!root) return;
+  if (!dashboardData.risks.length) {
+    root.innerHTML = `<div class="empty-state">No operational risks detected in the current scope.</div>`;
+    return;
+  }
   root.innerHTML = dashboardData.risks
     .map(
       (risk) => `
@@ -278,7 +314,7 @@ export function renderHero(dashboardData) {
     ? dashboardData.routes.reduce((sum, route) => sum + route.margin, 0) /
       dashboardData.routes.length
     : 0;
-  const openLoads = dashboardData.loads.length;
+  const openLoads = dashboardData.loads.filter((load) => load.status !== "delivered").length;
 
   document.querySelector("[data-hero-active]").textContent = `${active} / ${total}`;
   document.querySelector("[data-hero-loads]").textContent = String(openLoads);

@@ -331,3 +331,10 @@
     -webkit-print-color-adjust: exact;
   }
 }
+
+
+.report-button.is-confirmed {
+  border-color: rgba(115, 242, 141, 0.55);
+  background: rgba(115, 242, 141, 0.12);
+  color: var(--lime);
+}

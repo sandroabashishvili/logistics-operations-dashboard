@@ -56,6 +56,19 @@ function bindLoadDrawer(dashboardData) {
   });
 }
 
+function updateScopeSummary(dashboardData) {
+  const filters = Array.from(document.querySelectorAll("[data-filter-status], [data-filter-lane], [data-filter-driver], [data-filter-client], [data-filter-date], [data-filter-region]"));
+  const activeCount = filters.filter((control) => control.value !== "ALL").length;
+  const summary = document.querySelector("[data-filter-summary]");
+  const resetButton = document.querySelector("[data-reset-filters]");
+  if (summary) {
+    summary.textContent = activeCount
+      ? `${dashboardData.loads.length} loads match ${activeCount} active ${activeCount === 1 ? "filter" : "filters"}.`
+      : `${dashboardData.loads.length} loads in the current dataset.`;
+  }
+  if (resetButton) resetButton.disabled = activeCount === 0;
+}
+
 function rerender(rawData) {
   const dashboardData = buildDashboardData(rawData);
   appState.currentDashboardData = dashboardData;
@@ -80,6 +93,7 @@ function rerender(rawData) {
   bindLoadDrawer(dashboardData);
   renderRisks(dashboardData);
   updateReportMeta(dashboardData, appState.datasetLabel);
+  updateScopeSummary(dashboardData);
 }
 
 async function main() {

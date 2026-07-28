@@ -6,16 +6,17 @@ A portfolio-grade operations dashboard for a small transport company. It turns r
 
 ## What it demonstrates
 
-- KPI calculation from raw operational records
+- KPI calculation from raw operational records with realistic transport margins
 - fleet utilization and route profitability analysis
-- fuel-cost and driver-performance monitoring
+- fuel-cost monitoring and driver fuel-efficiency calculation in liters per 100 km
 - delayed and at-risk load detection
 - interactive filtering across status, lane, driver, client, date, and region
-- accessible load selection with a detailed trip and cost drawer
+- accessible load selection with a formatted trip, margin, and cost-analysis drawer
 - CSV import for a realistic client handoff flow
 - filtered JSON snapshot export
 - print-ready reporting for PDF or paper
 - responsive desktop and mobile layouts
+- empty states, active-filter scope feedback, and action confirmation states
 
 ## Live demo
 

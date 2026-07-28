@@ -20,13 +20,27 @@
   </head>
   <body>
     <main class="page">
-      <section class="hero">
+      <header class="appbar">
+        <a class="appbar-brand" href="#overview" aria-label="Northline dashboard overview">
+          <span class="appbar-mark">NL</span>
+          <span><strong>Northline Ops</strong><small>Decision console</small></span>
+        </a>
+        <nav class="appnav" aria-label="Dashboard sections">
+          <a href="#overview">Overview</a>
+          <a href="#analytics">Analytics</a>
+          <a href="#loads">Loads</a>
+          <a href="#risks">Risks</a>
+        </nav>
+        <span class="system-status"><i></i> Demo data · client-side</span>
+      </header>
+
+      <section class="hero section-anchor" id="overview">
         <div class="hero-copy">
-          <p class="eyebrow">Portfolio Project</p>
+          <p class="eyebrow">Operations intelligence demo</p>
           <h1>Northline Logistics Operations Dashboard</h1>
           <p class="intro">
-            A control center for small transport companies to see fleet utilization, route
-            profitability, fuel pressure, driver output, and delayed loads in one place.
+            A focused decision console for transport managers to review capacity, route
+            margins, fuel efficiency, driver performance, and delivery risk in one place.
           </p>
           <div class="hero-tags">
             <span>Fleet Analytics</span>
@@ -67,13 +81,13 @@
 
       <section class="grid grid-kpi" data-kpi-grid></section>
 
-      <section class="filters-panel import-panel">
+      <section class="filters-panel import-panel section-anchor" id="data-import">
         <div class="filters-head">
           <div>
-            <h2>CSV Import Mock Flow</h2>
+            <h2>Data Import & Scenario Testing</h2>
             <p class="panel-intro">
-              Simulate a real client handoff: upload a simple operations CSV and swap the
-              dashboard to imported load, trip, fuel, and cost records.
+              Upload a structured operations CSV to recalculate the complete dashboard
+              from a separate load, trip, fuel, and cost scenario.
             </p>
           </div>
           <div class="import-actions">
@@ -118,8 +132,11 @@
 
       <section class="filters-panel">
         <div class="filters-head">
-          <h2>Filters</h2>
-          <button class="reset-button" type="button" data-reset-filters>Reset</button>
+          <div>
+            <h2>Operational Filters</h2>
+            <p class="filter-summary" data-filter-summary>Preparing dataset scope…</p>
+          </div>
+          <button class="reset-button" type="button" data-reset-filters disabled>Reset filters</button>
         </div>
         <div class="filters-grid">
           <label class="filter-field">
@@ -161,7 +178,7 @@
         </div>
       </section>
 
-      <section class="grid grid-main">
+      <section class="grid grid-main section-anchor" id="analytics">
         <article class="panel panel-wide">
           <div class="panel-head">
             <h2>Route Profitability</h2>
@@ -223,9 +240,9 @@
           </div>
         </article>
 
-        <article class="panel panel-wide">
+        <article class="panel panel-wide section-anchor" id="loads">
           <div class="panel-head">
-            <h2>Active Loads and Trips</h2>
+            <h2>Load & Trip Register</h2>
             <span class="badge">Dispatch view</span>
           </div>
           <p class="panel-intro">
@@ -253,8 +270,8 @@
 
         <article class="panel panel-wide">
           <div class="panel-head">
-            <h2>Trip Detail Drawer</h2>
-            <span class="badge badge-muted">Inspection</span>
+            <h2>Load Detail & Cost Analysis</h2>
+            <span class="badge badge-muted">Selected record</span>
           </div>
           <p class="panel-intro">
             Click a load row to inspect lane, truck, driver, revenue, delay pressure, and cost
@@ -263,9 +280,9 @@
           <div class="drawer-shell" data-load-drawer></div>
         </article>
 
-        <article class="panel panel-wide">
+        <article class="panel panel-wide section-anchor" id="risks">
           <div class="panel-head">
-            <h2>Risk Loads</h2>
+            <h2>Operational Risk Queue</h2>
             <span class="badge badge-danger">Needs action</span>
           </div>
           <p class="panel-intro">
@@ -274,6 +291,17 @@
           <div class="risk-cards" data-risk-cards></div>
         </article>
       </section>
+
+      <footer class="app-footer">
+        <div>
+          <strong>Northline Logistics Operations Dashboard</strong>
+          <span>Portfolio MVP · realistic demo data · no live TMS connection</span>
+        </div>
+        <div class="footer-links">
+          <a href="https://github.com/sandroabashishvili/logistics-operations-dashboard" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+          <a href="https://sandro-abashishvili.sandroabashishvili.chatgpt.site/" target="_blank" rel="noopener noreferrer">Portfolio ↗</a>
+        </div>
+      </footer>
     </main>
 
     <script type="module" src="./assets/js/main.js"></script>

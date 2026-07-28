@@ -1,7 +1,7 @@
 # Current Status
 
 Status: `Portfolio MVP complete`<br>
-Updated: `2026-07-27`
+Updated: `2026-07-28`
 
 ## Product direction
 
@@ -17,7 +17,7 @@ The goal is not to imitate a complete TMS. The project demonstrates how raw oper
 - fleet utilization
 - route profitability
 - fuel-cost trend
-- driver performance
+- driver performance with fuel efficiency calculated from liters rather than fuel cost
 - active load and trip table
 - delayed and at-risk load detection
 - filters for status, lane, driver, client, date, and region
@@ -40,6 +40,9 @@ The goal is not to imitate a complete TMS. The project demonstrates how raw oper
 ### Reporting
 
 - report metadata for dataset, timestamp, and current scope
+- realistic route revenue and operating-margin model
+- active-filter scope summary and polished empty states
+- visible action feedback for export and print
 - filtered JSON snapshot export
 - A4 landscape print and Save-to-PDF layout
 

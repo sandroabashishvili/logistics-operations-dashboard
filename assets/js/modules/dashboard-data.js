@@ -19,6 +19,10 @@ export function buildDashboardData(rawData) {
     acc[item.trip_id] = (acc[item.trip_id] || 0) + Number(item.total_cost || 0);
     return acc;
   }, {});
+  const litersByTripId = fuelEvents.reduce((acc, item) => {
+    acc[item.trip_id] = (acc[item.trip_id] || 0) + Number(item.liters || 0);
+    return acc;
+  }, {});
 
   const deliveredLoads = loads.filter((load) => load.status === "DELIVERED");
   const delayedLoads = loads.filter((load) => load.status === "DELAYED");
@@ -99,11 +103,11 @@ export function buildDashboardData(rawData) {
         (sum, trip) => sum + Number(trip.distance_km || 0),
         0,
       );
-      const totalFuelCost = driverTrips.reduce(
-        (sum, trip) => sum + Number(fuelByTripId[trip.trip_id] || 0),
+      const totalFuelLiters = driverTrips.reduce(
+        (sum, trip) => sum + Number(litersByTripId[trip.trip_id] || 0),
         0,
       );
-      const fuelPer100Km = totalDistance ? (totalFuelCost / totalDistance) * 100 : 0;
+      const fuelPer100Km = totalDistance ? (totalFuelLiters / totalDistance) * 100 : 0;
       let status = "Strong";
       if (driver.incident_count >= 2 || onTimeRatio < 90) {
         status = "Risk";
@@ -213,11 +217,8 @@ export function buildDashboardData(rawData) {
       },
       {
         label: "Fuel Cost / Load",
-        value: euro(deliveredLoads.length ? fuelTotal / deliveredLoads.length : 0),
-        tone:
-          deliveredLoads.length && fuelTotal / deliveredLoads.length > 380
-            ? "warn"
-            : "good",
+        value: euro(trips.length ? fuelTotal / trips.length : 0),
+        tone: trips.length && fuelTotal / trips.length > 380 ? "warn" : "good",
       },
       {
         label: "Delayed Loads",

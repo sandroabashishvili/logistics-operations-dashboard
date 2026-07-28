@@ -64,12 +64,27 @@ export function updateReportMeta(dashboardData, datasetLabel) {
   if (loadCount) loadCount.textContent = `${dashboardData.loads.length} visible loads`;
 }
 
+function showActionFeedback(button, message, fallback) {
+  if (!button) return;
+  button.textContent = message;
+  button.classList.add("is-confirmed");
+  window.setTimeout(() => {
+    button.textContent = fallback;
+    button.classList.remove("is-confirmed");
+  }, 1800);
+}
+
 export function bindReporting(getState) {
-  document.querySelector("[data-export-json]")?.addEventListener("click", () => {
+  const exportButton = document.querySelector("[data-export-json]");
+  const printButton = document.querySelector("[data-print-report]");
+
+  exportButton?.addEventListener("click", () => {
     downloadSnapshot(getState);
+    showActionFeedback(exportButton, "Snapshot downloaded ✓", "Export snapshot JSON");
   });
 
-  document.querySelector("[data-print-report]")?.addEventListener("click", () => {
+  printButton?.addEventListener("click", () => {
+    showActionFeedback(printButton, "Opening print dialog…", "Print / Save PDF");
     window.print();
   });
 }
