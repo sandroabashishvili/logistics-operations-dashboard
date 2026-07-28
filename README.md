@@ -1,40 +1,43 @@
 # Northline Logistics Operations Dashboard
 
-A portfolio-grade operations dashboard for a small transport company. It turns raw load, trip, fuel, driver, and cost records into a practical decision-support view.
-
 ![Northline Logistics Operations Dashboard](assets/images/dashboard-preview.jpg)
 
-## What it demonstrates
+Ein interaktives Operations-Dashboard für ein kleines Transportunternehmen. Es
+verwandelt Lade-, Touren-, Kraftstoff-, Fahrer- und Kostendaten in eine
+übersichtliche Grundlage für operative Entscheidungen.
 
-- KPI calculation from raw operational records with realistic transport margins
-- fleet utilization and route profitability analysis
-- fuel-cost monitoring and driver fuel-efficiency calculation in liters per 100 km
-- delayed and at-risk load detection
-- interactive filtering across status, lane, driver, client, date, and region
-- accessible load selection with a formatted trip, margin, and cost-analysis drawer
-- CSV import for a realistic client handoff flow
-- filtered JSON snapshot export
-- print-ready reporting for PDF or paper
-- responsive desktop and mobile layouts
-- empty states, active-filter scope feedback, and action confirmation states
+**Live-Demo:** [Dashboard öffnen](https://sandro-abashishvili.sandroabashishvili.chatgpt.site/demos/logistics/)
 
-## Live demo
+## Was das Projekt demonstriert
 
-[Open the dashboard](https://sandro-abashishvili.sandroabashishvili.chatgpt.site/demos/logistics/)
+- KPI-Berechnung aus realistisch strukturierten Betriebsdaten
+- Flottenauslastung und Profitabilität einzelner Routen
+- Kraftstoffkosten und Fahrereffizienz in Litern pro 100 Kilometer
+- Erkennung verspäteter und gefährdeter Transporte
+- kombinierbare Filter nach Status, Route, Fahrer, Kunde, Datum und Region
+- zugängliche Ladungsauswahl mit Touren-, Margen- und Kostenanalyse
+- CSV-Import als realistischer Übergabeprozess
+- Export der gefilterten Ansicht als JSON-Snapshot
+- druckoptimierter Bericht für PDF oder Papier
+- responsive Desktop- und Mobile-Ansicht
+- verständliche Leer-, Filter- und Bestätigungszustände
 
-## Run locally
+## Lokal ansehen
 
-The project has no build step and no package dependencies. Serve the folder with any static HTTP server:
+Das Projekt hat weder Build-Schritt noch Paketabhängigkeiten:
 
 ```bash
+git clone https://github.com/sandroabashishvili/logistics-operations-dashboard.git
+cd logistics-operations-dashboard
 python3 -m http.server 8000
 ```
 
-Then open `http://localhost:8000`.
+Danach `http://127.0.0.1:8000/` öffnen.
 
-## CSV import
+## CSV-Import testen
 
-Use [data/sample_import.csv](data/sample_import.csv) to test the import workflow. Required columns:
+Die Datei [data/sample_import.csv](data/sample_import.csv) enthält einen
+passenden Beispieldatensatz. Benötigte Spalten:
 
 ```text
 load_id, client_name, pickup_city, delivery_city, driver_name,
@@ -42,14 +45,18 @@ vehicle_id, contract_price, status, fuel_cost, driver_cost,
 distance_km, pickup_date, delivery_date
 ```
 
-Imported rows replace the relevant demo data families in memory. The bundled dataset can be restored without reloading the page.
+Importierte Einträge ersetzen die entsprechenden Demo-Datengruppen im
+Arbeitsspeicher. Der mitgelieferte Ausgangsdatensatz kann ohne Neuladen der
+Seite wiederhergestellt werden.
 
-## Reporting
+## Berichte und Export
 
-- **Export snapshot JSON** saves the visible dataset, active filters, KPIs, and filtered load records.
-- **Print / Save PDF** switches to an A4 landscape report layout and opens the browser print dialog.
+- **Export Snapshot JSON** speichert sichtbaren Datenumfang, aktive Filter,
+  Kennzahlen und gefilterte Transporte.
+- **Print / Save PDF** aktiviert ein A4-Querformat und öffnet den Druckdialog
+  des Browsers.
 
-## Project structure
+## Projektstruktur
 
 ```text
 .
@@ -64,20 +71,27 @@ Imported rows replace the relevant demo data families in memory. The bundled dat
 └── index.html
 ```
 
-## Status and scope
+## Status und Grenzen
 
-The current version is a completed portfolio MVP. It uses realistic mock data and client-side calculations; it is not a full transport-management system and does not claim live ERP integration.
+Der aktuelle Stand ist ein abgeschlossener Portfolio-MVP mit realistischen
+Mock-Daten und clientseitigen Berechnungen. Das Projekt behauptet keine
+Live-Anbindung an ein TMS- oder ERP-System.
 
-The next product step would be a small backend with authenticated workspaces, persisted imports, scheduled reports, and adapters for real TMS/ERP data.
+Eine nächste Produktstufe würde ein kleines Backend, authentifizierte
+Arbeitsbereiche, persistierte Importe, geplante Berichte und Adapter für echte
+TMS-/ERP-Daten benötigen.
 
-## Documentation
+## Dokumentation
 
-- [Current status](docs/current_status.md)
-- [Data map](docs/data_map.md)
-- [MVP schema](docs/mvp_schema.md)
-- [Dashboard logic](docs/dashboard_logic.md)
+- [Aktueller Stand](docs/current_status.md)
+- [Datenübersicht](docs/data_map.md)
+- [MVP-Schema](docs/mvp_schema.md)
+- [Dashboard-Logik](docs/dashboard_logic.md)
 
-## Author
+## Autor
 
-Aleksandre (Sandro) Abashishvili<br>
-[Portfolio](https://sandro-abashishvili.sandroabashishvili.chatgpt.site) · [GitHub](https://github.com/sandroabashishvili) · [LinkedIn](https://www.linkedin.com/in/sandro-abashishvili/)
+Aleksandre (Sandro) Abashishvili
+
+[Portfolio](https://sandro-abashishvili.sandroabashishvili.chatgpt.site/) ·
+[GitHub](https://github.com/sandroabashishvili) ·
+[LinkedIn](https://www.linkedin.com/in/aleksandre-abashishvili-03417617a/)
