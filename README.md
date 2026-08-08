@@ -6,7 +6,7 @@ Ein interaktives Operations-Dashboard für ein kleines Transportunternehmen. Es
 verwandelt Lade-, Touren-, Kraftstoff-, Fahrer- und Kostendaten in eine
 übersichtliche Grundlage für operative Entscheidungen.
 
-**Live-Demo:** [Dashboard öffnen](https://sandro-abashishvili.sandroabashishvili.chatgpt.site/demos/logistics/)
+**Live-Demo:** [Dashboard öffnen](https://sandroabashishvili.github.io/logistics-operations-dashboard/)
 
 ## Was das Projekt demonstriert
 
@@ -90,8 +90,8 @@ TMS-/ERP-Daten benötigen.
 
 ## Autor
 
-Aleksandre (Sandro) Abashishvili
+Sandro Abashishvili
 
-[Portfolio](https://sandro-abashishvili.sandroabashishvili.chatgpt.site/) ·
+[Portfolio](https://sandroabashishvili.github.io/) ·
 [GitHub](https://github.com/sandroabashishvili) ·
 [LinkedIn](https://www.linkedin.com/in/aleksandre-abashishvili-03417617a/)
